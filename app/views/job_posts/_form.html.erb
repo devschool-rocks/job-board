@@ -6,32 +6,42 @@
       <ul>
       <% @job_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+      <%- end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, value: "Job Posting Title" %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
+  <div class="form-group">
+    <%= f.label :job_category %>
+    <span class="form-group">
+      <%= f.collection_select :job_category, JobCategory.all, :id, :name, {}, class: 'form-control' %>
+    </span>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :summary, value: "Describe the position in brief" %>
+    <%= f.text_area :summary, rows: 4, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :compensation %><br>
-    <%= f.text_area :compensation %>
+  <div class="form-group">
+    <%= f.label :description, value: "Describe the position in detail" %>
+    <%= f.text_area :description, rows: 8, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :apply %><br>
-    <%= f.text_area :apply %>
+  <div class="form-group">
+    <%= f.label :compensation, "Describe the compensation offered:" %>
+    <%= f.text_area :compensation, rows: 4,  class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :apply, "How would a person apply for this awesome job?" %>
+    <%= f.text_area :apply,  rows: 4, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <div class="pull-right">
+    <%= f.submit class: 'btn btn-primary btn-lg' %> or go
+    <%= link_to 'Back', job_posts_path %>
+    </div>
+    <div class="clearfix"></div>
   </div>
 <% end %>

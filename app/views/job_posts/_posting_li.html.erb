@@ -1,0 +1,11 @@
+<li class="posting <%= 'featured' if job.featured? %>">
+  <%= link_to job, class: "job-title-index" do %>
+    <span class="employer-name">
+      <%= job.employer_name %>
+    </span>
+    <%= job.title %>
+  <% end %>
+  <span class="job-date"><%= job.created_at.strftime("%b %e") %></span>
+  <div class="clearfix"></div>
+</li>
+

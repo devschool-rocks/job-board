@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+.new-btn {
+  margin: 0.5rem;
+}
+
+.heading {
+  border-bottom: 1px solid #ddd;
+}
+
+@media (min-width: 900px) {
+  .container {
+    width: 880px;
+  }
+}

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admins, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :employers, :controllers => { registrations: 'registrations' }
+
   resources :job_posts
-  devise_for :employers
+
+  root to: "job_posts#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+
+gem "letter_opener", group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

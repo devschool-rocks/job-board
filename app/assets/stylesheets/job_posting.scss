@@ -1,0 +1,29 @@
+.posting.featured {
+  background-color: #ffc;
+}
+
+.posting {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ccc;
+
+  .job-date {
+    float: right;
+    color: #AA9C84;
+  }
+
+  .employer-name {
+    font-weight: 600;
+    color: black;
+    margin-right: 10px;
+  }
+
+  .job-title-index,
+  .job-title-index:hover {
+    color: #39c;
+    text-decoration: none;
+  }
+}
+
