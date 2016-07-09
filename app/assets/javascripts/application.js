@@ -13,3 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+
+$(document).ready(function() {
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+      return null;
+    }
+    else{
+      return results[1] || 0;
+    }
+  };
+
+  $(".new-btn").on('click', function(e) {
+    document.location.href = "/job_posts/new?job_category_id=" + $(this).data("category-id");
+    return;
+  });
+
+  var catId = $.urlParam("job_category_id");
+  if (catId !== null) {
+    $("#job_post_job_category_id").val(catId);
+  }
+});

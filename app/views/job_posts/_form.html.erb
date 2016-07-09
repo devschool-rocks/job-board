@@ -15,10 +15,11 @@
     <%= f.label :title, value: "Job Posting Title" %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
+
   <div class="form-group">
     <%= f.label :job_category %>
     <span class="form-group">
-      <%= f.collection_select :job_category, JobCategory.all, :id, :name, {}, class: 'form-control' %>
+      <%= f.collection_select :job_category_id, JobCategory.all, :id, :name, {}, class: 'form-control' %>
     </span>
   </div>
   <div class="form-group">
@@ -37,6 +38,7 @@
     <%= f.label :apply, "How would a person apply for this awesome job?" %>
     <%= f.text_area :apply,  rows: 4, class: 'form-control' %>
   </div>
+
   <div class="actions">
     <div class="pull-right">
     <%= f.submit class: 'btn btn-primary btn-lg' %> or go

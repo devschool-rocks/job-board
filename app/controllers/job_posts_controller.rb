@@ -1,9 +1,7 @@
 class JobPostsController < ApplicationController
   before_action :authenticate_employer!, except: %i[index show]
 
-  # GET /job_posts
   def index
-    @job_posts = JobPost.all
   end
 
   def show
