@@ -14,7 +14,7 @@ class JobPostsController < ApplicationController
 
   def create
     if new_job_post(job_post_params).save
-      redirect_to job_posts_path
+      redirect_to new_payment_path
     else
       render :new
     end

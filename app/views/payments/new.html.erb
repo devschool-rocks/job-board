@@ -1,0 +1,25 @@
+<%= form_for @payment, html: { class: "basic-grey" } do |f| %>
+  <h2>Your job post will run for 30 days</h2>
+  <h3>Paying today: <%= number_to_currency(200) %></h3>
+
+  <div class="job_post">
+    <h2><%= @job_post.title %></h2>
+    <h3>Job Summary</h3>
+    <div><%= @job_post.summary %></div>
+
+    <h3>Description</h3>
+    <div><%= @job_post.description %></div>
+
+    <h3>Compensation</h3>
+    <div><%= @job_post.compensation %></div>
+
+    <h3>How to apply</h3>
+    <div><%= @job_post.apply %></div>
+  </div>
+
+  <script class="stripe-button"
+          data-amount="<%= @payment.amount_in_cents %>"
+            data-description="Diversity Job Posting"
+            data-key="<%=ENV.fetch("STRIPE_PUBLISHABLE_KEY") %>"
+            src="https://checkout.stripe.com/checkout.js"></script> 
+<%- end %>

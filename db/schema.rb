@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708071348) do
+ActiveRecord::Schema.define(version: 20160709192351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,18 @@ ActiveRecord::Schema.define(version: 20160708071348) do
   add_index "job_posts", ["employer_id"], name: "index_job_posts_on_employer_id", using: :btree
   add_index "job_posts", ["job_category_id"], name: "index_job_posts_on_job_category_id", using: :btree
 
+  create_table "payments", force: :cascade do |t|
+    t.integer  "job_post_id"
+    t.string   "auth_code"
+    t.string   "token"
+    t.string   "amount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "payments", ["job_post_id"], name: "index_payments_on_job_post_id", using: :btree
+
   add_foreign_key "job_posts", "employers"
   add_foreign_key "job_posts", "job_categories"
+  add_foreign_key "payments", "job_posts"
 end

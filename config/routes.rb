@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :employers, :controllers => { registrations: 'registrations' }
 
   resources :job_posts
+  resources :payments
 
   root to: "job_posts#index"
 

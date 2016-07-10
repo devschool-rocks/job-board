@@ -1,15 +1,22 @@
 <%= form_for(@job_post) do |f| %>
   <% if @job_post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@job_post.errors.count, "error") %> prohibited this job_post from being saved:</h2>
+      <h2><%= pluralize(@job_post.errors.count, "error") %> prohibited this job from being posted:</h2>
 
       <ul>
-      <% @job_post.errors.full_messages.each do |message| %>
+      <%- @job_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <%- end %>
+      <% end %>
       </ul>
     </div>
   <% end %>
+
+  <div class="form-group">
+    <div class="checkbox featured">
+      <label><%= f.check_box :featured? %>
+      Display your post with a highlighted background for $50 more</label>
+    </div>
+  </div>
 
   <div class="form-group">
     <%= f.label :title, value: "Job Posting Title" %>
@@ -41,8 +48,8 @@
 
   <div class="actions">
     <div class="pull-right">
-    <%= f.submit class: 'btn btn-primary btn-lg' %> or go
-    <%= link_to 'Back', job_posts_path %>
+    <%= f.submit "Continue to payment", class: 'btn btn-primary btn-lg' %> or go
+    <%= link_to 'back', job_posts_path %>
     </div>
     <div class="clearfix"></div>
   </div>
